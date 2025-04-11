@@ -21,25 +21,15 @@
         .navbar {
             background-color: #0070d2; /* Salesforce blue */
             padding: 1rem;
-            position: fixed;
             width: 100%;
-            top: 0;
-            z-index: 1000;
         }
 
         .navbar .container {
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-        }
-
-        .navbar .logo {
-            color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-decoration: none;
         }
 
         .navbar .nav-links {
@@ -48,13 +38,13 @@
         }
 
         .navbar .nav-links li {
-            margin-left: 2rem;
+            margin: 0 1.5rem;
         }
 
         .navbar .nav-links a {
             color: white;
             text-decoration: none;
-            font-size: 1rem;
+            font-size: 1.1rem;
             transition: color 0.3s;
         }
 
@@ -67,6 +57,8 @@
             display: none;
             flex-direction: column;
             cursor: pointer;
+            position: absolute;
+            right: 20px;
         }
 
         .hamburger span {
@@ -86,7 +78,7 @@
             justify-content: center;
             text-align: center;
             color: white;
-            padding-top: 60px; /* Account for fixed navbar */
+            padding: 20px;
         }
 
         .hero-content {
@@ -119,8 +111,147 @@
             background: #f0f0f0;
         }
 
+        /* General Section Styling */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            color: #0070d2;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        section p, section li {
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        /* About Me Section */
+        #about {
+            background: #f9f9f9;
+        }
+
+        #about p {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* Experience Section */
+        #experience {
+            background: white;
+        }
+
+        .experience-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .experience-item {
+            background: #f0f0f0;
+            padding: 1.5rem;
+            border-radius: 5px;
+        }
+
+        .experience-item h3 {
+            font-size: 1.5rem;
+            color: #0070d2;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item p, .experience-item ul {
+            margin-bottom: 1rem;
+        }
+
+        .experience-item ul {
+            padding-left: 20px;
+        }
+
+        /* Education Section */
+        #education {
+            background: #f9f9f9;
+        }
+
+        .education-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .education-list li {
+            margin-bottom: 1rem;
+        }
+
+        /* Projects Section */
+        #projects {
+            background: white;
+        }
+
+        .project-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .project-item {
+            background: #f0f0f0;
+            padding: 1.5rem;
+            border-radius: 5px;
+        }
+
+        .project-item h3 {
+            font-size: 1.5rem;
+            color: #0070d2;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: #f9f9f9;
+            text-align: center;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+        }
+
+        .contact-form button {
+            padding: 0.8rem 2rem;
+            background: #0070d2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: #005fb2;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
+            .navbar {
+                position: relative;
+            }
+
             .navbar .nav-links {
                 display: none;
                 flex-direction: column;
@@ -151,37 +282,127 @@
             .hero p {
                 font-size: 1rem;
             }
+
+            section h2 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="container">
-            <a href="#" class="logo">Mary John Silas</a>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
+    <!-- Hero Section with Navigation -->
     <section id="home" class="hero">
+        <nav class="navbar">
+            <div class="container">
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
         <div class="hero-content">
-            <h1>Welcome to My Portfolio</h1>
-            <p>I'm Mary John Silas, a dedicated Salesforce Administrator with a passion for optimizing business processes and driving success through innovative solutions.</p>
+            <h1>Mary John Silas</h1>
+            <p>Certified Salesforce Administrator | Streamlining Business Processes with Salesforce Expertise</p>
             <a href="#contact" class="cta-button">Get in Touch</a>
         </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p><strong>Bio</strong><br>
+        Mary Silas is a Salesforce Administrator currently advancing her skills through the ALX program. Passionate about leveraging technology and human behavior insights, Mary aims to utilize Salesforce tools to drive business growth and improve customer experiences. She brings strong conflict resolution skills and a proven track record in excellent customer service. Mary is committed to completing her ALX program and contributing her Salesforce expertise to organizations looking to streamline operations and enhance client relationships.</p>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2>Experience</h2>
+        <div class="experience-grid">
+            <div class="experience-item">
+                <h3>Salesforce Administrator Intern | Tech Solutions Inc.</h3>
+                <p><em>June 2024 - Present</em></p>
+                <p>Supporting the Salesforce team in managing user accounts, customizing objects, and automating workflows to enhance operational efficiency.</p>
+                <p><strong>Services:</strong></p>
+                <ul>
+                    <li>User Management: Created and managed user profiles, roles, and permission sets.</li>
+                    <li>Data Management: Performed data imports and maintained data integrity using Data Loader.</li>
+                    <li>Workflow Automation: Designed workflows and process builder flows to automate business processes.</li>
+                    <li>Reporting: Built custom reports and dashboards for sales and support teams.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <h3>Customer Success Associate | Cloud Innovations</h3>
+                <p><em>January 2023 - May 2024</em></p>
+                <p>Assisted clients with Salesforce navigation and provided training on CRM functionalities, contributing to improved client satisfaction.</p>
+                <p><strong>Services:</strong></p>
+                <ul>
+                    <li>Client Training: Conducted Salesforce training sessions for end-users.</li>
+                    <li>Support: Resolved user queries related to Salesforce navigation and functionality.</li>
+                    <li>Customization: Assisted in creating custom fields and page layouts per client requirements.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2>Education</h2>
+        <ul class="education-list">
+            <li><strong>ALX Salesforce Administrator Certification</strong><br>
+                ALX Africa, Online<br>
+                <em>Expected Completion: 2025</em><br>
+                Comprehensive training in Salesforce administration, including user management, data modeling, automation, and reporting.</li>
+            <li><strong>Bachelor of Business Administration</strong><br>
+                University of Example, City, Country<br>
+                <em>2018 - 2022</em><br>
+                Focused on business processes and technology integration.</li>
+        </ul>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-grid">
+            <div class="project-item">
+                <h3>Salesforce CRM Optimization</h3>
+                <p>Revamped a Salesforce instance for a mid-sized company by streamlining lead-to-opportunity processes, resulting in a 20% increase in conversion rates.</p>
+                <ul>
+                    <li>Customized lead and opportunity objects to align with business needs.</li>
+                    <li>Implemented validation rules to ensure data accuracy.</li>
+                    <li>Created dashboards to track sales performance metrics.</li>
+                </ul>
+            </div>
+            <div class="project-item">
+                <h3>Automated Support Ticketing System</h3>
+                <p>Designed a Salesforce Service Cloud solution to automate case assignments and escalations, reducing response times by 30%.</p>
+                <ul>
+                    <li>Configured case management workflows and assignment rules.</li>
+                    <li>Integrated email-to-case functionality for seamless communication.</li>
+                    <li>Developed reports to monitor support team performance.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Interested in collaborating or learning more about my Salesforce expertise? Reach out!</p>
+        <form class="contact-form">
+            <input type="text" placeholder="Name" required>
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
     </section>
 
     <script>
@@ -202,7 +423,7 @@
                 const targetElement = document.getElementById(targetId);
                 if (targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 60, // Adjust for navbar height
+                        top: targetElement.offsetTop,
                         behavior: 'smooth'
                     });
                 }
