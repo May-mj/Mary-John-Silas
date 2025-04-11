@@ -1,145 +1,216 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mary John Silas - Salesforce Admin Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
 
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-}
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
 
-/* Navbar Styles */
-.navbar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 200px;
-    background-color: #0070d2; /* Salesforce blue */
-    color: white;
-    transform: translateY(-100%);
-    animation: slideDown 1s ease forwards;
-    z-index: 1000;
-}
+        /* Navigation Bar */
+        .navbar {
+            background-color: #0070d2; /* Salesforce blue */
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
 
-.navbar ul {
-    list-style: none;
-    padding: 20px;
-}
+        .navbar .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.navbar li {
-    margin: 20px 0;
-}
+        .navbar .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
 
-.navbar a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    transition: color 0.3s;
-}
+        .navbar .nav-links {
+            list-style: none;
+            display: flex;
+        }
 
-.navbar a:hover {
-    color: #f4f4f4;
-}
+        .navbar .nav-links li {
+            margin-left: 2rem;
+        }
 
-@keyframes slideDown {
-    from {
-        transform: translateY(-100%);
-    }
-    to {
-        transform: translateY(0);
-    }
-}
+        .navbar .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
 
-/* Hero Section */
-.hero {
-    height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1516321310768-61f3f3f6b50c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-}
+        .navbar .nav-links a:hover {
+            color: #f0f0f0;
+        }
 
-.hero-content h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
-    opacity: 0;
-    animation: fadeIn 1.5s ease forwards;
-}
+        /* Hamburger Menu for Mobile */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
 
-.salesforce-logo {
-    width: 150px;
-    opacity: 0;
-    animation: popUp 2s ease forwards 0.5s;
-}
+        .hamburger span {
+            background: white;
+            height: 3px;
+            width: 25px;
+            margin: 2px 0;
+            transition: all 0.3s;
+        }
 
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
-}
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(to right, #0070d2, #00a1e0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding-top: 60px; /* Account for fixed navbar */
+        }
 
-@keyframes popUp {
-    0% {
-        opacity: 0;
-        transform: scale(0.5);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
 
-/* General Section Styles */
-.section {
-    padding: 60px 20px;
-    max-width: 800px;
-    margin: 0 auto 0 220px; /* Offset for navbar */
-}
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
 
-.section h2 {
-    font-size: 32px;
-    margin-bottom: 20px;
-    color: #0070d2;
-}
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
 
-.section p {
-    font-size: 18px;
-    color: #333;
-}
+        .cta-button {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: white;
+            color: #0070d2;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .navbar {
-        width: 100%;
-        height: auto;
-        transform: translateY(-100%);
-        animation: slideDown 1s ease forwards;
-    }
+        .cta-button:hover {
+            background: #f0f0f0;
+        }
 
-    .navbar ul {
-        display: flex;
-        justify-content: space-around;
-        padding: 10px;
-    }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: #0070d2;
+                padding: 1rem;
+            }
 
-    .navbar li {
-        margin: 0;
-    }
+            .navbar .nav-links.active {
+                display: flex;
+            }
 
-    .section {
-        margin: 0 20px;
-    }
+            .navbar .nav-links li {
+                margin: 0.5rem 0;
+            }
 
-    .hero-content h1 {
-        font-size: 32px;
-    }
+            .hamburger {
+                display: flex;
+            }
 
-    .salesforce-logo {
-        width: 100px;
-    }
-}
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Mary John Silas</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to My Portfolio</h1>
+            <p>I'm Mary John Silas, a dedicated Salesforce Administrator with a passion for optimizing business processes and driving success through innovative solutions.</p>
+            <a href="#contact" class="cta-button">Get in Touch</a>
+        </div>
+    </section>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Smooth Scroll for Navigation Links
+        document.querySelectorAll('.nav-links a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 60, // Adjust for navbar height
+                        behavior: 'smooth'
+                    });
+                }
+                // Close mobile menu after clicking
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
